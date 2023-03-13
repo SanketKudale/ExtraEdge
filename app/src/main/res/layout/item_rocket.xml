@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="rocket"
+            type="com.sanket.extraedge.model.Rocket" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/slider"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    app:sliderAnimationDuration="400"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderIndicatorAnimationDuration="400"
+                    app:sliderIndicatorEnabled="true"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="@color/transparent"
+                    app:sliderIndicatorUnselectedColor="@color/transparent"
+                    app:sliderScrollTimeInSec="2" />
+
+                <TextView
+                    android:text="@{rocket.name}"
+                    style="@style/TextView_Title"
+                    android:textSize="16sp"
+                    android:textColor="@color/orange"
+                    android:textStyle="bold"
+                    tools:text="Rocket Name"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="@{`Country - `+rocket.country}"
+                    style="@style/TextView_Title"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"
+                    tools:text="Country - Republic of the Marshall Islands"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="@{`Engines Count - `+rocket.engines.number}"
+                    style="@style/TextView_Title"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:textStyle="italic"
+                    tools:text="Engines Count - 100"
+                    tools:ignore="SmallSp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>
