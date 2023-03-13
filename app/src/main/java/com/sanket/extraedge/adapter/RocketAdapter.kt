@@ -1,5 +1,6 @@
 package com.sanket.extraedge.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,10 @@ class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
     private lateinit var binding: ItemRocketBinding
     private var rockets: ArrayList<Rocket> = ArrayList()
 
-    public fun setRockets(list: ArrayList<Rocket>){
+    var listener: RocketClick? = null
+
+    fun setRockets(context: Context, list: ArrayList<Rocket>){
+        listener = context as RocketClick
         rockets = list
     }
 
@@ -26,6 +30,7 @@ class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
     override fun onBindViewHolder(holder: RocketViewHolder, position: Int) {
         val rocket = rockets[position]
         holder.bind(rocket)
+        binding.cvRocket.setOnClickListener { listener!!.onRocketClick(rocket.id.toString()) }
     }
 
     override fun getItemCount(): Int {
@@ -50,7 +55,12 @@ class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
 
             slider.isAutoCycle = true
             slider.setSliderAdapter(sliderAdapter)
+
         }
+    }
+
+    interface RocketClick{
+        fun onRocketClick(rocketId: String)
     }
 
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ExtraEdge</string>
     <string name="all_rockets">SpaceX Rockets</string>
+    <string name="wikipedia">Wikipedia</string>
 </resources>

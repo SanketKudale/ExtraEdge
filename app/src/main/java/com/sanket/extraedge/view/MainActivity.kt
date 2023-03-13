@@ -1,5 +1,6 @@
 package com.sanket.extraedge.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +16,7 @@ import com.sanket.extraedge.viewmodel.RocketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RocketAdapter.RocketClick {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: RocketAdapter
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             if (it != null)
             {
                 binding.rvRockets.layoutManager = GridLayoutManager(this,2)
-                adapter.setRockets(it)
+                adapter.setRockets(this@MainActivity,it)
                 binding.adapter = adapter
             }
             else{
@@ -44,5 +45,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
         viewModel.loadData()
+    }
+
+    override fun onRocketClick(rocketId: String) {
+        startActivity(Intent(this@MainActivity,RocketDetailActivity::class.java).putExtra("rocketId",rocketId))
     }
 }

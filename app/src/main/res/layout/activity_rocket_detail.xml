@@ -5,31 +5,129 @@
 
     <data>
 
+        <variable
+            name="rocket"
+            type="com.sanket.extraedge.model.RocketDetails" />
     </data>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".view.RocketDetailActivity">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical"
+            tools:context=".view.RocketDetailActivity">
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="40dp"
+                android:text="@{rocket.name}"
+                android:textColor="@color/orange"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="Rocket Name" />
 
 
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/slider"
-            android:layout_width="150dp"
-            android:layout_height="180dp"
-            app:sliderAnimationDuration="400"
-            app:sliderAutoCycleDirection="back_and_forth"
-            app:sliderIndicatorAnimationDuration="400"
-            app:sliderIndicatorEnabled="true"
-            app:sliderIndicatorGravity="center_horizontal|bottom"
-            app:sliderIndicatorMargin="15dp"
-            app:sliderIndicatorOrientation="horizontal"
-            app:sliderIndicatorPadding="3dp"
-            app:sliderIndicatorRadius="2dp"
-            app:sliderIndicatorSelectedColor="@color/transparent"
-            app:sliderIndicatorUnselectedColor="@color/transparent"
-            app:sliderScrollTimeInSec="2" />
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                app:sliderAnimationDuration="400"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderIndicatorAnimationDuration="400"
+                app:sliderIndicatorEnabled="true"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="@color/transparent"
+                app:sliderIndicatorUnselectedColor="@color/transparent"
+                app:sliderScrollTimeInSec="2" />
 
-    </LinearLayout>
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Status - `+rocket.active}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Status - Active" />
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Cost Per Launch - `+rocket.costPerLaunch}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Cost Per Launch - 200000" />
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Success - `+rocket.successRatePct}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Success - 60%" />
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Description - `+rocket.description}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Description - Rep OSIJF oISUJRF OPJEIOJojoijuoid ufsej zozwirzio;hj gzdu;rrrrrrrrrrrihgigzjublic of the Marshall Islands" />
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Height - `+rocket.height}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Height - 2 feet" />
+
+            <TextView
+                style="@style/TextView_Title"
+                android:layout_marginTop="10dp"
+                android:text="@{`Diameter - `+rocket.diameter}"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Diameter - 2 feet" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/wikipedia"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    style="@style/TextView_Title"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/wikipedia"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>
