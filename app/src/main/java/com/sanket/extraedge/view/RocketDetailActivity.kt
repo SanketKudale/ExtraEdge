@@ -1,5 +1,7 @@
 package com.sanket.extraedge.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sanket.extraedge.R
 import com.sanket.extraedge.adapter.SliderAdapter
 import com.sanket.extraedge.databinding.ActivityRocketDetailBinding
+import com.sanket.extraedge.model.RocketDetails
 import com.sanket.extraedge.viewmodel.RocketDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +35,8 @@ class RocketDetailActivity : AppCompatActivity() {
         viewModel.getLiveDataObserver().observe(this) {
             Log.e("response", "$it")
             if (it != null) {
-                binding.rocket = it
+                val rocket = it
+                binding.rocket = rocket
 
                 val slider = binding.slider
                 val imageList = ArrayList<String>()
@@ -42,6 +46,9 @@ class RocketDetailActivity : AppCompatActivity() {
 
                 slider.isAutoCycle = true
                 slider.setSliderAdapter(sliderAdapter)
+                binding.llRocket.setOnClickListener {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(rocket.wikipedia)))
+                }
             } else {
                 Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show()
             }

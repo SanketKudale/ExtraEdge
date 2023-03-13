@@ -10,7 +10,7 @@ interface ApiInterface {
     @GET("rockets")
     fun getRockets() : Call<ArrayList<Rocket>>
 
-    @GET("rockets/")
+    @GET("rockets/{id}")
     fun getRocketDetails(@Path("id") rocketId: String) : Call<RocketDetails>
 
 }

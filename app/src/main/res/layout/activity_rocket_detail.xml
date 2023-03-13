@@ -88,7 +88,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Height - `+rocket.height}"
+                android:text="@{`Height - `+rocket.height.feet+` ft`}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -97,17 +97,19 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Diameter - `+rocket.diameter}"
+                android:text="@{`Diameter - `+rocket.diameter.feet+` ft`}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:text="Diameter - 2 feet" />
 
             <LinearLayout
+                android:id="@+id/ll_rocket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
                 tools:ignore="UseCompoundDrawables">
 
