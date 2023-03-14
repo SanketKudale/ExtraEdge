@@ -1,28 +1,12 @@
 package com.sanket.extraedge.db
 
-import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
+import com.sanket.extraedge.utils.Converters
 
-@Database(entities = [], version = 1)
+@Database(entities = [RocketEntity::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun getDao():AppDao
-
-    companion object{
-        private var dbINSTANCE: AppDatabase? = null
-
-        fun getAppDB(context: Context): AppDatabase{
-            if (dbINSTANCE == null){
-                dbINSTANCE = Room.databaseBuilder<AppDatabase>(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "EEDB"
-                ).allowMainThreadQueries().build()
-            }
-            return dbINSTANCE!!
-        }
-    }
+    abstract fun appDao():AppDao
 
 }

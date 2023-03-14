@@ -7,7 +7,7 @@
 
         <variable
             name="rocket"
-            type="com.sanket.extraedge.model.Rocket" />
+            type="com.sanket.extraedge.db.RocketEntity" />
 
     </data>
 
@@ -68,7 +68,7 @@
 
                 <TextView
                     android:layout_marginTop="5dp"
-                    android:text="@{`Engines Count - `+rocket.engines.number}"
+                    android:text="@{`Engines Count - `+rocket.engines}"
                     style="@style/TextView_Title"
                     android:textSize="10sp"
                     android:textColor="@color/black"

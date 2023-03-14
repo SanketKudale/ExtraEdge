@@ -2,21 +2,19 @@ package com.sanket.extraedge.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.sanket.extraedge.model.Rocket
 
 @Dao
 interface AppDao {
 
-    @Query("SELECT * FROM tableRocketList")
-    fun getRockets(): ArrayList<Rocket>
+    @Query("SELECT * FROM ${Constant.ROCKET_TABLE}")
+    fun getRockets(): List<RocketEntity>
 
-    @Query("SELECT * FROM tableRocketDetails WHERE id = :rocketId")
-    fun getRocketDetails(rocketId: String): ArrayList<Rocket>
+    @Query("Select * FROM ${Constant.ROCKET_TABLE} WHERE id =:id")
+    fun getRocketDetails(id: String): RocketEntity
 
-    @Insert
-    fun saveRockets(rocketListEntity: RocketListEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun saveRocket(rocketEntity: RocketEntity)
 
-    @Insert
-    fun saveRocketDetails(rocketDetailsEntity: RocketDetailsEntity)
 }

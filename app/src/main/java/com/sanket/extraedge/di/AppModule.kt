@@ -1,12 +1,15 @@
 package com.sanket.extraedge.di
 
 import android.content.Context
+import androidx.room.Room
 import com.sanket.extraedge.db.AppDao
 import com.sanket.extraedge.db.AppDatabase
+import com.sanket.extraedge.db.Constant
 import com.sanket.extraedge.retrofit.ApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,17 +42,5 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient.build())
             .build()
-    }
-
-    @Singleton
-    @Provides
-    fun getAppDB(context: Context): AppDatabase {
-        return  AppDatabase.getAppDB(context)
-    }
-
-    @Singleton
-    @Provides
-    fun getDao(appDB: AppDatabase): AppDao {
-        return  appDB.getDao()
     }
 }

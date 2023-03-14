@@ -7,7 +7,7 @@
 
         <variable
             name="rocket"
-            type="com.sanket.extraedge.model.RocketDetails" />
+            type="com.sanket.extraedge.db.RocketEntity" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -61,7 +61,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Cost Per Launch - `+rocket.costPerLaunch}"
+                android:text="@{`Cost Per Launch - `+rocket.costLaunch}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -70,7 +70,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Success - `+rocket.successRatePct}"
+                android:text="@{`Success - `+rocket.success}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -88,7 +88,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Height - `+rocket.height.feet+` ft`}"
+                android:text="@{`Height - `+rocket.height+` ft`}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -97,7 +97,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Diameter - `+rocket.diameter.feet+` ft`}"
+                android:text="@{`Diameter - `+rocket.diameter+` ft`}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"

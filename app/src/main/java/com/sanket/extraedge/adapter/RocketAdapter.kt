@@ -4,17 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sanket.extraedge.model.Rocket
 import com.sanket.extraedge.databinding.ItemRocketBinding
+import com.sanket.extraedge.db.RocketEntity
 
 class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
 
     private lateinit var binding: ItemRocketBinding
-    private var rockets: ArrayList<Rocket> = ArrayList()
+    private var rockets: List<RocketEntity> = ArrayList()
 
     var listener: RocketClick? = null
 
-    fun setRockets(context: Context, list: ArrayList<Rocket>){
+    fun setRockets(context: Context, list: List<RocketEntity>){
         listener = context as RocketClick
         rockets = list
     }
@@ -45,11 +45,11 @@ class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
     class RocketViewHolder(private val binding: ItemRocketBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val slider = binding.slider
-        fun bind(rocket: Rocket) {
+        fun bind(rocket: RocketEntity) {
             binding.rocket = rocket
 
             val imageList = ArrayList<String>()
-            imageList.addAll(rocket.flickrImages)
+            rocket.images?.let { imageList.addAll(it) }
 
             val sliderAdapter = SliderAdapter(imageList)
 
