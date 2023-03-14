@@ -29,8 +29,9 @@ class RocketAdapter() : RecyclerView.Adapter<RocketAdapter.RocketViewHolder>() {
 
     override fun onBindViewHolder(holder: RocketViewHolder, position: Int) {
         val rocket = rockets[position]
+
+        holder.itemView.setOnClickListener { listener!!.onRocketClick(rocket.id.toString()) }
         holder.bind(rocket)
-        binding.cvRocket.setOnClickListener { listener!!.onRocketClick(rocket.id.toString()) }
     }
 
     override fun getItemCount(): Int {

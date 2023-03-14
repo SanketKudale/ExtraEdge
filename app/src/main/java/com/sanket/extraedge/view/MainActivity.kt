@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
 import com.gk.emon.lovelyLoading.LoadingPopup
 import com.sanket.extraedge.R
 import com.sanket.extraedge.adapter.RocketAdapter
@@ -45,6 +48,8 @@ class MainActivity : AppCompatActivity(), RocketAdapter.RocketClick {
         LoadingPopup.showLoadingPopUp()
 
         initViewModel()
+
+
     }
 
     private fun initViewModel() {
