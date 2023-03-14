@@ -70,7 +70,7 @@
             <TextView
                 style="@style/TextView_Title"
                 android:layout_marginTop="10dp"
-                android:text="@{`Success - `+rocket.success}"
+                android:text="@{`Success - `+rocket.success+`%`}"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
